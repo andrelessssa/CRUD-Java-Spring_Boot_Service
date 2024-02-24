@@ -25,6 +25,10 @@ public class CrudService {
     public List<CrudModel> listar(){
         return crudRepository.findAll();
     }
+    public CrudModel buscarPorId(Long id){
+        CrudModel crudModel = crudRepository.findById(id).get();
+        return crudModel;
+    }
     
     
 }
