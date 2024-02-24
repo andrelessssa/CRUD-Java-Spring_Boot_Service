@@ -38,6 +38,9 @@ public class CrudService {
         BeanUtils.copyProperties(crudDto, crudModel);
         return crudRepository.save(crudModel);
     }
+    public void deletar(Long id){
+        crudRepository.deleteById(id);
+    }
     
     
 }
