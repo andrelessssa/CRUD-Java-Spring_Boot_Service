@@ -42,6 +42,11 @@ public class CrudController {
     public ResponseEntity<?> pegarPorId(@PathVariable  Long id) {    
         return ResponseEntity.status(HttpStatus.OK).body(crudService.buscarPorId(id));
     }
+    @GetMapping("/buscar/{cpf}")
+    public ResponseEntity<CrudModel> pegarPorCpf(@PathVariable String cpf){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.buscarPorCpf(cpf));
+    }
+
     
 
 

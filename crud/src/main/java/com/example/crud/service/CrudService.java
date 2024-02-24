@@ -29,6 +29,10 @@ public class CrudService {
         CrudModel crudModel = crudRepository.findById(id).get();
         return crudModel;
     }
+    public CrudModel buscarPorCpf(String cpf){
+        CrudModel crudModel = crudRepository.findByCpf(cpf);
+        return crudModel;
+    }
     
     
 }
