@@ -33,6 +33,11 @@ public class CrudService {
         CrudModel crudModel = crudRepository.findByCpf(cpf);
         return crudModel;
     }
+    public CrudModel atualizar(Long id, CrudDto crudDto ){
+        CrudModel crudModel = buscarPorId(id);
+        BeanUtils.copyProperties(crudDto, crudModel);
+        return crudRepository.save(crudModel);
+    }
     
     
 }

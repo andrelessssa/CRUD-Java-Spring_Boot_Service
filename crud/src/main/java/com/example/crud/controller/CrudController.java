@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,12 +40,17 @@ public class CrudController {
     } 
     
     @GetMapping("/{id}")
-    public ResponseEntity<?> pegarPorId(@PathVariable  Long id) {    
+    public ResponseEntity<CrudModel> pegarPorId(@PathVariable  Long id) {    
         return ResponseEntity.status(HttpStatus.OK).body(crudService.buscarPorId(id));
     }
+
     @GetMapping("/buscar/{cpf}")
     public ResponseEntity<CrudModel> pegarPorCpf(@PathVariable String cpf){
         return ResponseEntity.status(HttpStatus.OK).body(crudService.buscarPorCpf(cpf));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<CrudModel> atualizar(@PathVariable Long id,@RequestBody CrudDto crudDto){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.atualizar(id, crudDto));
     }
 
     
